@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initNavbarScroll();
     initGitHubProjects("kayky-ctrl");
     initActiveLinks();
+    updateYear();
 });
 
 // --- 1. Efeito da Navbar ao rolar ---
@@ -75,4 +76,16 @@ function initActiveLinks() {
             this.classList.add('active');
         });
     });
+}
+
+function updateYear() {
+    var textFooter = document.getElementById('footerText');
+
+    var agora = new Date();
+    var year = agora.getFullYear();
+
+    textFooter.innerHTML = `
+        &copy; ${year} Kayky. Todos os direitos reservados.
+    `
+
 }
