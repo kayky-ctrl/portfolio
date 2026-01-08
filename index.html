@@ -1,394 +1,219 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfólio | Kayky</title>
 
-    <link rel="stylesheet" href="css/style.css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfólio | Kayky</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Plus+Jakarta+Sans:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
 
-    <link rel="shortcut icon" href="imgs/logoico.ico" type="image/x-icon" />
-  </head>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Plus+Jakarta+Sans:wght@400;700&display=swap"
+    rel="stylesheet" />
 
-  <body>
-    <header>
-      <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container-fluid">
-          <a class="navbar-brand hvr-grow-shadow" href="#">
-            <img src="imgs/logo.png" alt="Logo de Kayky" />
-          </a>
+  <link rel="shortcut icon" href="imgs/logoico.ico" type="image/x-icon" />
+</head>
 
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
+<body data-bs-spy="scroll" data-bs-target="#navbarNav" data-bs-offset="100" tabindex="0">
+  <header>
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand hvr-grow-shadow" href="#">
+          <img src="imgs/logo.png" alt="Logo de Kayky" />
+        </a>
 
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
-              <li class="nav-item">
-                <a
-                  class="nav-link hvr-underline-from-center active"
-                  aria-current="page"
-                  href="#"
-                  >Home</a
-                >
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link hvr-underline-from-center"
-                  href="#habilidades"
-                  >Habilidades</a
-                >
-              </li>
-              <li class="nav-item">
-                <a class="nav-link hvr-underline-from-center" href="#projetos"
-                  >Projetos</a
-                >
-              </li>
-              <li class="nav-item">
-                <a
-                  class="nav-link nav-icon hvr-grow-shadow"
-                  href="https://github.com/Kayky"
-                  target="_blank"
-                  aria-label="Github"
-                >
-                  <i class="fa-brands fa-github"></i>
-                </a>
-              </li>
-              <li class="nav-item ms-lg-2">
-                <a href="#contato" class="btn-custom">Contato</a>
-              </li>
-            </ul>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+            <li class="nav-item">
+              <a class="nav-link hvr-underline-from-center" aria-current="page" href="#sobre">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link hvr-underline-from-center" href="#habilidades">Habilidades</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link hvr-underline-from-center" href="#projetos">Projetos</a>
+            </li>
+            <li class="nav-item ms-lg-2">
+              <a href="#contato" class="btn-custom">Contato</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="sobre" class="eu">
+      <div class="container text-center py-5">
+        <h2 class="display-4 fw-bold">I’m Kayky</h2>
+        <img src="imgs/image.png" alt="Foto de perfil de Kayky" class="img-fluid rounded-circle my-4" />
+        <h1 class="display-1 fw-bolder text-uppercase">
+          FULL STACK DEVELOPER
+        </h1>
+        <p class="fs-4 mt-3">Na indústria há 2 anos</p>
+        <p class="text-muted">
+          Criando aplicações que causam um impacto real
+        </p>
+      </div>
+    </section>
+
+    <section id="habilidades" class="skills-detailed py-5">
+      <div class="container text-center">
+        <h2 class="mb-5">Minhas Habilidades</h2>
+        <div class="row justify-content-center">
+          <div class="col-md-10">
+            <div class="row g-4">
+              <div class="col-lg-4 col-md-6">
+                <div class="skill-card card h-100 shadow-sm p-4">
+                  <i class="fa-solid fa-code fa-2x mb-3"></i>
+                  <h4 class="card-title">Front-end</h4>
+                  <ul class="list-unstyled text-muted">
+                    <li>HTML5 & CSS3</li>
+                    <li>JavaScript (ES6+)</li>
+                    <li>Vue.js</li>
+                    <li>Bootstrap</li>
+                    <li>Design Responsivo</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6">
+                <div class="skill-card card h-100 shadow-sm p-4">
+                  <i class="fa-solid fa-server fa-2x mb-3"></i>
+                  <h4 class="card-title">Back-end</h4>
+                  <ul class="list-unstyled text-muted">
+                    <li>Python</li>
+                    <li>APIs RESTful</li>
+                    <li>PHP & Laravel</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-lg-4 col-md-6">
+                <div class="skill-card card h-100 shadow-sm p-4">
+                  <i class="fa-solid fa-toolbox fa-2x mb-3"></i>
+                  <h4 class="card-title">Ferramentas & DBs</h4>
+                  <ul class="list-unstyled text-muted">
+                    <li>Git & GitHub</li>
+                    <li>SQL (phpmyadmin, MySQL)</li>
+                    <li>Docker básico</li>
+                    <li>VS Code & Figma</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </nav>
-    </header>
+      </div>
+    </section>
 
-    <main>
-      <section id="sobre" class="eu">
-        <div class="container text-center py-5">
-          <h2 class="display-4 fw-bold">I’m Kayky</h2>
-          <img
-            src="imgs/image.png"
-            alt="Foto de perfil de Kayky"
-            class="img-fluid rounded-circle my-4"
-          />
-          <h1 class="display-1 fw-bolder text-uppercase">
-            FULL STACK DEVELOPER
-          </h1>
-          <p class="fs-4 mt-3">Na indústria há 2 anos</p>
-          <p class="text-muted">
-            Criando aplicações que causam um impacto real
+    <section id="projetos" class="projects py-5">
+      <div class="container">
+        <h2 class="text-center mb-5">Meus Projetos</h2>
+
+        <div id="github-projects-grid" class="row row-cols-1 row-cols-md-2 g-4">
+          <div class="col">
+            <div class="card h-100 skeleton-card"></div>
+          </div>
+          <div class="col">
+            <div class="card h-100 skeleton-card"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato" class="contact py-5">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="mb-3">Vamos Conversar?</h2>
+          <p class="fs-5 mx-auto w-75">
+            Tem uma ideia, projeto ou oportunidade? Adoraria ouvir sobre isso.
+            Preencha o formulário abaixo ou me encontre através dos links ao
+            lado.
           </p>
         </div>
-      </section>
 
-      <section id="habilidades" class="skills-detailed py-5">
-        <div class="container text-center">
-          <h2 class="mb-5">Minhas Habilidades</h2>
-          <div class="row justify-content-center">
-            <div class="col-md-10">
-              <div class="row g-4">
-                <div class="col-lg-4 col-md-6">
-                  <div class="skill-card card h-100 shadow-sm p-4">
-                    <i class="fa-solid fa-code fa-2x mb-3"></i>
-                    <h4 class="card-title">Front-end</h4>
-                    <ul class="list-unstyled text-muted">
-                      <li>HTML5 & CSS3</li>
-                      <li>JavaScript (ES6+)</li>
-                      <li>React</li>
-                      <li>Bootstrap & SASS</li>
-                      <li>Design Responsivo</li>
-                    </ul>
+        <div class="row gy-5 justify-content-center align-items-stretch">
+          <div class="col-lg-7">
+            <div class="card p-4 p-md-5 h-100">
+              <form id="contactForm" novalidate>
+                <div class="row g-4">
+                  <div class="col-md-6">
+                    <label for="name" class="form-label visually-hidden">Seu Nome</label>
+                    <input type="text" id="name" name="name" class="form-control" placeholder="Seu Nome" required />
+                  </div>
+
+                  <div class="col-md-6">
+                    <label for="email" class="form-label visually-hidden">Seu E-mail</label>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="Seu E-mail"
+                      required />
+                  </div>
+
+                  <div class="col-12">
+                    <label for="message" class="form-label visually-hidden">Sua Mensagem</label>
+                    <textarea id="message" name="message" class="form-control" rows="6" placeholder="Sua Mensagem"
+                      required></textarea>
+                  </div>
+
+                  <div class="col-12 text-center">
+                    <button type="submit" class="btn-custom">
+                      <i class="fa-solid fa-paper-plane me-2"></i> Enviar Mensagem
+                    </button>
                   </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
-                  <div class="skill-card card h-100 shadow-sm p-4">
-                    <i class="fa-solid fa-server fa-2x mb-3"></i>
-                    <h4 class="card-title">Back-end</h4>
-                    <ul class="list-unstyled text-muted">
-                      <li>Node.js & Express.js</li>
-                      <li>Python & Django</li>
-                      <li>APIs RESTful</li>
-                      <li>PHP & Laravel</li>
-                    </ul>
-                  </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                  <div class="skill-card card h-100 shadow-sm p-4">
-                    <i class="fa-solid fa-toolbox fa-2x mb-3"></i>
-                    <h4 class="card-title">Ferramentas & DBs</h4>
-                    <ul class="list-unstyled text-muted">
-                      <li>Git & GitHub</li>
-                      <li>SQL (phpmyadmin, MySQL)</li>
-                      <li>NoSQL (MongoDB)</li>
-                      <li>Docker & AWS Básico</li>
-                      <li>VS Code & Figma</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
+              </form>
+            </div>
+          </div>
+
+          <div class="col-lg-5 d-flex">
+            <div class="contact-info-block w-100">
+              <h4>Fale Comigo</h4>
+              <ul class="contact-list">
+                <li>
+                  <a href="mailto:kaykyrdepaula@gmail.com">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>kaykyrdepaula@gmail.com</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.linkedin.com/in/kaykydepaula-dev/" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-linkedin"></i>
+                    <span>in/kaykydepaula-dev</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://github.com/kayky-ctrl" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-github"></i>
+                    <span>/kayky-ctrl</span>
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
-      </section>
-
-      <section id="projetos" class="projects py-5">
-        <div class="container">
-          <h2 class="text-center mb-5">Meus Projetos</h2>
-
-          <div
-            id="github-projects-grid"
-            class="row row-cols-1 row-cols-md-2 g-4"
-          >
-            <div class="col-12 text-center" id="projects-loading-message">
-              <p class="fs-5 text-muted">Carregando projetos do GitHub...</p>
-              <div class="spinner-border text-light" role="status">
-                <span class="visually-hidden">Loading...</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="contato" class="contact py-5">
-        <div class="container">
-          <div class="text-center mb-5">
-            <h2 class="mb-3">Vamos Conversar?</h2>
-            <p class="fs-5 mx-auto w-75">
-              Tem uma ideia, projeto ou oportunidade? Adoraria ouvir sobre isso.
-              Preencha o formulário abaixo ou me encontre através dos links ao
-              lado.
-            </p>
-          </div>
-
-          <div class="row gy-5 justify-content-center align-items-stretch">
-            <div class="col-lg-7">
-              <div class="card p-4 p-md-5 h-100">
-                <form id="contactForm" novalidate>
-                  <div class="row g-4">
-                    <div class="col-md-6">
-                      <label for="name" class="form-label visually-hidden"
-                        >Seu Nome</label
-                      >
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        class="form-control"
-                        placeholder="Seu Nome"
-                        required
-                      />
-                    </div>
-
-                    <div class="col-md-6">
-                      <label for="email" class="form-label visually-hidden"
-                        >Seu E-mail</label
-                      >
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        class="form-control"
-                        placeholder="Seu E-mail"
-                        required
-                      />
-                    </div>
-
-                    <div class="col-12">
-                      <label for="message" class="form-label visually-hidden"
-                        >Sua Mensagem</label
-                      >
-                      <textarea
-                        id="message"
-                        name="message"
-                        class="form-control"
-                        rows="6"
-                        placeholder="Sua Mensagem"
-                        required
-                      ></textarea>
-                    </div>
-
-                    <div class="col-12 text-center">
-                      <button type="submit" class="btn-custom">
-                        <i class="fa-solid fa-paper-plane me-2"></i> Enviar
-                        Mensagem
-                      </button>
-                    </div>
-                  </div>
-                </form>
-                <div id="form-messages" class="mt-4 text-center"></div>
-              </div>
-            </div>
-
-            <div class="col-lg-5 d-flex">
-              <div class="contact-info-block w-100">
-                <h4>Fale Comigo</h4>
-                <ul class="contact-list">
-                  <li>
-                    <a href="mailto:kaykyrdepaula@gmail.com">
-                      <i class="fa-solid fa-envelope"></i>
-                      <span>kayky@gmail.com</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://www.linkedin.com/in/kayky"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <i class="fa-brands fa-linkedin"></i>
-                      <span>in/kayky</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://github.com/kayky-ctrl"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <i class="fa-brands fa-github"></i>
-                      <span>/kayky-ctrl</span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="text-white text-center py-4">
-      <div class="container">
-        <p>&copy; 2025 Kayky. Todos os direitos reservados.</p>
       </div>
-    </footer>
+    </section>
+  </main>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const navbar = document.querySelector(".navbar");
-        window.addEventListener("scroll", () => {
-          if (window.scrollY > 50) {
-            navbar.classList.add("navbar-scrolled");
-          } else {
-            navbar.classList.remove("navbar-scrolled");
-          }
-        });
-      });
-    </script>
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        // 1. CONFIGURE SEU USUÁRIO E O ALVO
-        // Mude para o seu nome de usuário do GitHub
-        const githubUsername = "kayky-ctrl";
-        const grid = document.getElementById("github-projects-grid");
-        const loadingMessage = document.getElementById(
-          "projects-loading-message"
-        );
+  <footer class="text-white text-center py-4">
+    <div class="container">
+      <p>&copy; 2025 Kayky. Todos os direitos reservados.</p>
+    </div>
+  </footer>
 
-        // 2. BUSCAR DADOS DA API
-        // Busca os 4 repositórios mais recentes (excluindo forks)
-        const apiUrl = `https://api.github.com/users/${githubUsername}/repos?sort=updated&direction=desc&per_page=4`;
+  <script src="js/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+</body>
 
-        fetch(apiUrl)
-          .then((response) => {
-            if (!response.ok) {
-              throw new Error(
-                `Não foi possível carregar os projetos. Status: ${response.status}`
-              );
-            }
-            return response.json();
-          })
-          .then((repos) => {
-            // Filtra os repositórios para remover forks
-            const nonForkRepos = repos.filter((repo) => !repo.fork);
-
-            // Limpa a mensagem de "Carregando..."
-            if (loadingMessage) {
-              loadingMessage.remove();
-            }
-
-            if (nonForkRepos.length === 0) {
-              grid.innerHTML = `<div class="col-12 text-center">
-                                <p class="fs-5 text-muted">Nenhum repositório público encontrado.</p>
-                              </div>`;
-              return;
-            }
-
-            // 3. CONSTRUIR O HTML PARA CADA PROJETO
-            nonForkRepos.forEach((repo) => {
-              // A "mágica" da imagem automática
-              const imageUrl = `https://opengraph.githubassets.com/1/${repo.full_name}`;
-
-              // Lida com descrição nula
-              const description =
-                repo.description || "Este repositório não tem descrição.";
-
-              const cardHtml = `
-            <article class="col">
-              <div class="card h-100 shadow-sm">
-                <div
-                  class="img-project"
-                  style="background-image: url('${imageUrl}')"
-                ></div>
-                <div class="card-body">
-                  <h4 class="card-title">${repo.name}</h4>
-                  <p class="card-text text-muted">
-                    ${description}
-                  </p>
-                  <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="btn-project hvr-grow-shadow mt-3">Ver Projeto no GitHub</a>
-                </div>
-              </div>
-            </article>
-          `;
-
-              // Adiciona o card ao grid
-              grid.innerHTML += cardHtml;
-            });
-          })
-          .catch((error) => {
-            // 4. MOSTRAR ERRO SE A API FALHAR
-            console.error("Erro ao buscar dados do GitHub:", error);
-
-            // Limpa a mensagem de "Carregando..." e mostra o erro
-            if (loadingMessage) {
-              loadingMessage.remove();
-            }
-            grid.innerHTML = `<div class="col-12 text-center">
-                            <p class="fs-5 text-danger">Erro ao carregar projetos. Tente novamente mais tarde.</p>
-                          </div>`;
-          });
-      });
-    </script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
-  </body>
 </html>

@@ -12,6 +12,10 @@
   --text-medium: #94a3b8;   /* Cinza-Azulado Médio (Texto Secundário) */
   --text-dark: #0f172a;       /* Azul Escuro (Para texto em botões claros) */
 }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px; 
+}
 
 body {
   margin: 0;
@@ -241,10 +245,14 @@ body {
 
 .skill-card .card-title {
   font-weight: 600;
-  color: rgb(51, 51, 51); /* Cor do título corrigida */
+  color: var(--primary); /* Antes estava rgb(51, 51, 51) */
   margin-bottom: 1rem;
 }
 
+.navbar-nav .nav-link.active {
+  color: var(--primary) !important;
+  font-weight: 700;
+}
 .skill-card ul {
   padding-left: 0;
   text-align: center;
