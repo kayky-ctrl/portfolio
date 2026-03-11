@@ -1,69 +1,54 @@
 <?php
+// Configuração de Erros para o Render
 ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-// Importa as classes do PHPMailer para o namespace global
+
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-// Carrega o autoloader do Composer (essencial no Render)
-require 'vendor/autoload.php';
+require __DIR__ . '/vendor/autoload.php';
 
-// Verifica se o formulário foi enviado via POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    
     $mail = new PHPMailer(true);
 
     try {
-        // --- Configurações do Servidor ---
-        // $mail->SMTPDebug = SMTP::DEBUG_SERVER;      // Descomente para ver erros detalhados
         $mail->isSMTP();
-        $mail->Host       = 'smtp.gmail.com';           // Servidor SMTP do Gmail
+        $mail->Host       = 'smtp.gmail.com';
         $mail->SMTPAuth   = true;
-        
-        // Puxa as credenciais das Variáveis de Ambiente do Render
-        $mail->Username   = getenv('EMAIL_USER');       // Seu e-mail (ex: seu@gmail.com)
-        $mail->Password   = getenv('EMAIL_PASS');       // Aquela senha de 16 dígitos
-        
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; 
+        $mail->Username   = getenv('EMAIL_USER'); 
+        $mail->Password   = getenv('EMAIL_PASS'); 
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port       = 587;
 
-        // --- Remetente e Destinatário ---
-        // Quem envia (seu e-mail autenticado)
-        $mail->setFrom(getenv('EMAIL_USER'), 'Contato Portfolio');
+        $mail->setFrom(getenv('EMAIL_USER'), 'Portfolio Contato');
+        $mail->addAddress(getenv('EMAIL_USER')); 
         
-        // Quem recebe (você mesmo)
-        $mail->addAddress(getenv('EMAIL_USER'));
-        
-        // E-mail de resposta (será o e-mail que o usuário digitou no form)
-        if (isset($_POST['email']) && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-            $mail->addReplyTo($_POST['email'], $_POST['nome']);
+        // Ajustado para os names do seu HTML: name, email, message
+        if (!empty($_POST['email'])) {
+            $mail->addReplyTo($_POST['email'], $_POST['name'] ?? 'Usuário');
         }
 
-        // --- Conteúdo da Mensagem ---
         $mail->isHTML(true);
-        $mail->Subject = 'Novo contato: ' . ($_POST['nome'] ?? 'Sem nome');
+        $mail->Subject = 'Novo contato: ' . ($_POST['name'] ?? 'Sem nome');
         
-        // Montando o corpo do e-mail com HTML básico
-        $corpoHTML = "<h2>Nova mensagem do seu Portfólio</h2>";
-        $corpoHTML .= "<p><b>Nome:</b> " . htmlspecialchars($_POST['nome']) . "</p>";
-        $corpoHTML .= "<p><b>E-mail:</b> " . htmlspecialchars($_POST['email']) . "</p>";
-        $corpoHTML .= "<p><b>Mensagem:</b><br>" . nl2br(htmlspecialchars($_POST['mensagem'])) . "</p>";
-        
-        $mail->Body = $corpoHTML;
+        $nome = htmlspecialchars($_POST['name'] ?? 'Não informado');
+        $email = htmlspecialchars($_POST['email'] ?? 'Não informado');
+        $mensagem = nl2br(htmlspecialchars($_POST['message'] ?? 'Sem mensagem'));
 
-        // Envia o e-mail
+        $mail->Body = "<h3>Nova mensagem do Portfolio</h3>
+                       <p><b>Nome:</b> {$nome}</p>
+                       <p><b>E-mail:</b> {$email}</p>
+                       <p><b>Mensagem:</b><br>{$mensagem}</p>";
+
         $mail->send();
         
-        // Redireciona ou exibe mensagem de sucesso
-        echo "<script>alert('Mensagem enviada com sucesso!'); window.location.href='/';</script>";
-        
+        echo "<script>alert('Mensagem enviada com sucesso!'); window.location.href = '/';</script>";
+
     } catch (Exception $e) {
-        echo "A mensagem não pôde ser enviada. Erro do Mailer: {$mail->ErrorInfo}";
+        // Se der erro, ele vai imprimir na tela agora
+        echo "Erro ao enviar: {$mail->ErrorInfo}";
     }
 } else {
-    // Se tentarem acessar o arquivo diretamente sem o POST
     header("Location: /");
-    exit();
 }
