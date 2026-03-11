@@ -208,6 +208,12 @@ body {
   transform: scale(1.05) rotate(5deg);
 }
 
+.section-title{
+  background-image: linear-gradient(135deg, var(--primary-hover) 0%, var(--text-light) 70%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 /* =============================================== */
 /* --- SEÇÃO "HABILIDADES" --- */
 /* =============================================== */
@@ -509,6 +515,45 @@ footer {
 .hvr-underline-from-center:active:before {
   left: 0;
   right: 0;
+}
+
+/* Garante que os cards do GitHub mantenham o padrão visual que você tinha */
+#github-projects-grid .card {
+    background: var(--bg-glass);
+    border: 1px solid var(--border-glass);
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease;
+}
+
+#github-projects-grid .card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary);
+}
+
+#github-projects-grid .card-title {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+#github-projects-grid .card-text {
+    color: var(--text-medium) !important;
+}
+
+/* Estilo do botão dentro do card de projeto */
+.btn-project {
+    background-color: transparent;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.btn-project:hover {
+    background-color: var(--primary);
+    color: var(--bg-dark);
 }
 
 /* Animação de Fade-in (Usada no Hero) */

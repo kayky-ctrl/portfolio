@@ -1,65 +1,70 @@
 document.addEventListener("DOMContentLoaded", () => {
-    initNavbarScroll();
-    initGitHubProjects("kayky-ctrl");
-    initActiveLinks();
-    updateYear();
+  initNavbarScroll();
+  initGitHubProjects("kayky-ctrl");
+  initActiveLinks();
+  updateYear();
 });
 
 // --- 1. Efeito da Navbar ao rolar ---
 function initNavbarScroll() {
-    const navbar = document.querySelector(".navbar");
-    
-    window.addEventListener("scroll", () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add("navbar-scrolled");
-        } else {
-            navbar.classList.remove("navbar-scrolled");
-        }
-    });
+  const navbar = document.querySelector(".navbar");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+      navbar.classList.add("navbar-scrolled");
+    } else {
+      navbar.classList.remove("navbar-scrolled");
+    }
+  });
 }
 
 // --- 2. Busca de Projetos no GitHub ---
 async function initGitHubProjects(username) {
     const grid = document.getElementById("github-projects-grid");
-    const loadingMessage = document.getElementById("projects-loading-message");
-    const apiUrl = `https://api.github.com/users/${username}/repos?sort=updated&direction=desc&per_page=4`;
+    
+    // Lista exata dos repositórios que você quer mostrar
+    const priorityRepos = [
+        "ReconhecimentoFacialRaspberry",
+        "GestaodePedidos.Api",
+        "ProjetoFenix",
+        "SHOPGEST",
+        "CoderChallengeBonus"
+    ];
 
     try {
-        const response = await fetch(apiUrl);
-        if (!response.ok) throw new Error("Erro na API");
-        
-        const repos = await response.json();
-        const nonForkRepos = repos.filter(repo => !repo.fork);
+        const response = await fetch(`https://api.github.com/users/${username}/repos?per_page=100`);
+        const allRepos = await response.json();
 
-        if (loadingMessage) loadingMessage.remove();
+        // Filtra apenas os da lista acima
+        const filteredRepos = allRepos.filter(repo => priorityRepos.includes(repo.name));
 
-        // Limpa o grid antes de inserir (evita duplicatas)
+        // Ordena conforme a sua lista de prioridade
+        filteredRepos.sort((a, b) => priorityRepos.indexOf(a.name) - priorityRepos.indexOf(b.name));
+
         grid.innerHTML = ""; 
 
-        nonForkRepos.forEach(repo => {
-            const cardHtml = createProjectCard(repo);
-            grid.innerHTML += cardHtml;
+        filteredRepos.forEach(repo => {
+            grid.innerHTML += createProjectCard(repo);
         });
 
     } catch (error) {
-        console.error("Erro ao carregar GitHub:", error);
-        if (grid) grid.innerHTML = `<p class="text-danger text-center">Erro ao carregar projetos.</p>`;
+        grid.innerHTML = `<p class="text-center">Erro ao carregar projetos selecionados.</p>`;
     }
 }
-
 // Auxiliar: Cria o HTML do Card (Deixa o código principal mais limpo)
 function createProjectCard(repo) {
+    // Usando a imagem social do repositório (OpenGraph) para ficar visualmente bonito
     const imageUrl = `https://opengraph.githubassets.com/1/${repo.full_name}`;
-    const description = repo.description || "Sem descrição disponível.";
+    const description = repo.description || "Projeto focado em tecnologia e inovação.";
     
     return `
-        <article class="col">
-            <div class="card h-100 shadow-sm">
-                <div class="img-project" style="background-image: url('${imageUrl}')"></div>
-                <div class="card-body">
+        <article class="col-md-6 col-lg-4 mb-4">
+            <div class="card h-100 shadow-sm border-glass bg-glass">
+                <div class="img-project" style="background-image: url('${imageUrl}'); height: 200px; background-size: cover; background-position: center;"></div>
+                <div class="card-body d-flex flex-column">
                     <h4 class="card-title">${repo.name}</h4>
-                    <p class="card-text text-muted">${description}</p>
-                    <a href="${repo.html_url}" target="_blank" class="btn-project hvr-grow-shadow mt-3">Ver no GitHub</a>
+                    <p class="card-text flex-grow-1">${description}</p>
+                    <a href="${repo.html_url}" target="_blank" class="btn-project hvr-grow-shadow mt-3 text-center">Acessar Repositório</a>
                 </div>
             </div>
         </article>
@@ -68,24 +73,23 @@ function createProjectCard(repo) {
 
 // --- 3. Gerenciamento de Links Ativos ---
 function initActiveLinks() {
-    const navLinks = document.querySelectorAll('.nav-link');
+  const navLinks = document.querySelectorAll(".nav-link");
 
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            navLinks.forEach(el => el.classList.remove('active'));
-            this.classList.add('active');
-        });
+  navLinks.forEach((link) => {
+    link.addEventListener("click", function () {
+      navLinks.forEach((el) => el.classList.remove("active"));
+      this.classList.add("active");
     });
+  });
 }
 
 function updateYear() {
-    var textFooter = document.getElementById('footerText');
+  var textFooter = document.getElementById("footerText");
 
-    var agora = new Date();
-    var year = agora.getFullYear();
+  var agora = new Date();
+  var year = agora.getFullYear();
 
-    textFooter.innerHTML = `
+  textFooter.innerHTML = `
         &copy; ${year} Kayky. Todos os direitos reservados.
-    `
-
+    `;
 }
