@@ -93,3 +93,32 @@ function updateYear() {
         &copy; ${year} Kayky. Todos os direitos reservados.
     `;
 }
+
+const contactForm = document.getElementById('contactForm');
+
+contactForm.addEventListener('submit', function(e) {
+    e.preventDefault(); // Impede a página de recarregar
+
+    const formData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        message: document.getElementById('message').value
+    };
+
+    fetch('http://localhost:3000/enviar-email', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert('Mensagem enviada com sucesso!');
+        contactForm.reset();
+    })
+    .catch(error => {
+        console.error('Erro:', error);
+        alert('Houve um erro ao enviar a mensagem.');
+    });
+});
